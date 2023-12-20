@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+</head>
+<body>
+<h1>Currency Exchange Calculator</h1>
+
+<p>Currency ID: <select id="selectCurrency" th:field="*{currencies}">
+    <option th:each="option: ${currencies}" th:value="${option.currencyId}" th:text="${option.currencyId}"></option>
+</select>
+    <input type="number" id="numberInput" placeholder="Enter number" />
+</p>
+<button onclick="calculateResult()">Calculate</button>
+<h3>Result:</h3>
+<p id="result"> </p>
+
+<script th:inline="javascript">
+   function calculateResult() {
+   /*<![CDATA[*/
+        var currencies = /*[[${currencies}]]*/ [];
+
+        var selectedCurrencyId = document.getElementById("selectCurrency").value;
+        var selectedObject = findObjectByCurrencyId(selectedCurrencyId);
+
+        var currencyRate = selectedObject.currencyRate;
+
+       // Get the entered number
+       var enteredNumber = parseFloat(document.getElementById("numberInput").value);
+
+       // Perform the calculation
+       var result = currencyRate * enteredNumber;
+
+       // Display the result
+       document.getElementById("result").innerText = result.toFixed(2) + " RON";
+
+       function findObjectByCurrencyId(currencyId) {
+            return currencies.find(function(obj) {
+            return obj.currencyId == currencyId;
+        });    }
+    /*]]>*/
+   }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Currencies</title>
+</head>
+<body>
+<h1>All Currencies</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Currency</th>
+        <th>Exchange Rate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="currency : ${currencies}">
+        <td th:text="${currency.currencyId}"></td>
+        <td th:text="${currency.currencyRate}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

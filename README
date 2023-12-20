@@ -1,0 +1,17 @@
+Please develop a Java application which allows users to exchange money from one currency to another.
+The application will get real-life (and real-time) information from the following address, which offers an XML document:
+https://www.bnr.ro/nbrfxrates.xml
+As you already know, XML is a kind of document which structures information.
+
+Be aware that BNR (Banca Nationala a Romaniei) limits the number of daily downloads for this document.
+Therefore, you will access the document and save its contents to a local file first. My suggestion is to "download"
+its contents using a stream of bytes.
+
+The user interface will allow the user to enter the source currency, an amount they want to exchange, and a destination
+currency.
+The program has to display the calculated value.
+
+Also, please implement a mechanism which allows the user to see all currencies and their exchange rates as a table on
+the screen.
+Optional: The user will be able to choose how to sort the list: based on the currencies names, or based on the exchange
+rate values - ascending and descending
