@@ -5,9 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Currencies</title>
+    <style>
+        h1 {
+  text-align: center;
+}
+        table {
+  table-layout: fixed;
+  width: 30%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+thead th:nth-child(1) {
+  width: 50%;
+}
+
+thead th:nth-child(2) {
+  width: 50%;
+}
+th,
+td {
+  padding: 10px;
+}
+        tr {
+
+  text-align: center;
+}
+        button {display: inline-block;
+            padding: 7px 10px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #33BEFF;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+
+        }
+        button:hover {background-color: #3e8e41}
+        .text-center {
+  text-align: center;
+}
+    </style>
 </head>
 <body>
 <h1>All Currencies</h1>
+<div class="text-center">
+<button onclick="exchangeApp()">Exchange</button>
+    <p> </p>
+</div>
 <table border="1">
     <thead>
     <tr>
@@ -22,5 +73,10 @@
     </tr>
     </tbody>
 </table>
+<script>
+    function exchangeApp() {
+        window.location.href = '/';
+    }
+</script>
 </body>
 </html>

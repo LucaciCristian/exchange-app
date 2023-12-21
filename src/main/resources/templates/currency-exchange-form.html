@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Exchange</title>
+    <style>
+        button {display: inline-block;
+            padding: 7px 10px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #33BEFF;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+
+        }
+        button:hover {background-color: #3e8e41}
+         h1 {text-align: center;}
+        .text-center {
+  text-align: center;
+}
+        p {text-align : center; }
+        h3 {text-align: center;}
+        .text-center {
+  text-align: center;
+}
+    </style>
 </head>
 <body>
 <h1>Currency Exchange Calculator</h1>
@@ -13,35 +39,47 @@
 </select>
     <input type="number" id="numberInput" placeholder="Enter number" />
 </p>
-<button onclick="calculateResult()">Calculate</button>
+<div class="text-center">
+    <button onclick="calculateResult()">Calculate</button>
+
+    <button onclick="allForms()">Exchange Rates</button>
+</div>
 <h3>Result:</h3>
 <p id="result"> </p>
 
+<script>
+    function allForms() {
+        window.location.href = 'all-currencies';
+    }
+</script>
+
 <script th:inline="javascript">
-   function calculateResult() {
-   /*<![CDATA[*/
-        var currencies = /*[[${currencies}]]*/ [];
+    function calculateResult() {
+    /*<![CDATA[*/
+         var currencies = /*[[${currencies}]]*/ [];
 
-        var selectedCurrencyId = document.getElementById("selectCurrency").value;
-        var selectedObject = findObjectByCurrencyId(selectedCurrencyId);
+         var selectedCurrencyId = document.getElementById("selectCurrency").value;
+         var selectedObject = findObjectByCurrencyId(selectedCurrencyId);
 
-        var currencyRate = selectedObject.currencyRate;
 
-       // Get the entered number
-       var enteredNumber = parseFloat(document.getElementById("numberInput").value);
+         var currencyRate = selectedObject.currencyRate;
 
-       // Perform the calculation
-       var result = currencyRate * enteredNumber;
+        // Get the entered number
+        var enteredNumber = parseFloat(document.getElementById("numberInput").value);
 
-       // Display the result
-       document.getElementById("result").innerText = result.toFixed(2) + " RON";
+        // Perform the calculation
+        var result = currencyRate * enteredNumber;
 
-       function findObjectByCurrencyId(currencyId) {
-            return currencies.find(function(obj) {
-            return obj.currencyId == currencyId;
-        });    }
-    /*]]>*/
-   }
+        // Display the result
+        document.getElementById("result").innerText = result.toFixed(2) + " RON";
+
+
+         function findObjectByCurrencyId(currencyId) {
+             return currencies.find(function(obj) {
+             return obj.currencyId == currencyId;
+         });    }
+     /*]]>*/
+    }
 </script>
 </body>
 </html>
